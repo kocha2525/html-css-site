@@ -1,0 +1,66 @@
+<h2>float（フロート）</h2>
+
+<h3>floatとは？</h3>
+<p>
+    float は本来「画像の回り込み」のための仕組み。
+    <br>昔はレイアウトにも使われていたが、今は Flexbox が主流。
+    <br>あまり覚える必要もないかも
+</p>
+
+<h3>基本の使い方</h3>
+<pre class="code">
+img {
+    float: right;
+    width: 150px;
+    margin: 10px;
+}
+</pre>
+<img src="/html教科書/imgs/img7.png" alt="回り込みイメージ">
+
+<h3>float の値</h3>
+<table>
+    <tr>
+        <th>値</th>
+        <th>説明</th>
+    </tr>
+    <tr>
+        <td>left</td>
+        <td>左に寄せて回り込み</td>
+    </tr>
+    <tr>
+        <td>right</td>
+        <td>右に寄せて回り込み</td>
+    </tr>
+    <tr>
+        <td>none</td>
+        <td>回り込みなし</td>
+    </tr>
+</table>
+
+<h3>clearfix（クリアフィックス）</h3>
+<pre class="code">
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+</pre>
+
+<h3>float の代わりに使うべきもの</h3>
+<ul>
+    <li>Flexbox</li>
+    <li>Grid</li>
+</ul>
+
+<h3>なんでfloatは使わん（嫌われてるか）</h3>
+<p>昔はfloatでレイアウトしてたが、
+    <br>レイアウトするのに使うにしては問題が多すぎた
+</p>
+<ul>
+    <li>親の高さが消える</li>
+    <li>回り込み解除(clear)が必要</li>
+    <li>思った通りにそろわない</li>
+    <li>レスポンシブが難しい</li>
+    <li>本来は"画像の回り込み"用なのにレイアウトに使われてた</li>
+</ul>
+<p><strong>せやから基本レイアウトではflexやgridを使用するのが今流ですわ</strong></p>

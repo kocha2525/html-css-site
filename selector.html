@@ -1,0 +1,326 @@
+<h2>CSS セレクタ詳細</h2>
+
+<h3>セレクタとは？</h3>
+<p>
+    セレクタとは、<strong>「どの要素にCSSを適用するか」</strong> を指定するためのもの。
+    <br>HTML のどの部分を装飾するかを決める“指名”の役割を持つ。
+</p>
+
+<h3>基本のセレクタ</h3>
+<table>
+    <tr>
+        <th>セレクタ</th>
+        <th>例</th>
+        <th>意味</th>
+    </tr>
+    <tr>
+        <td>タグセレクタ</td>
+        <td>p {}</td>
+        <td>pタグすべてに適用</td>
+    </tr>
+    <tr>
+        <td>classセレクタ</td>
+        <td>.box {}</td>
+        <td>class="box" に適用</td>
+    </tr>
+    <tr>
+        <td>idセレクタ</td>
+        <td>#title {}</td>
+        <td>id="title" に適用</td>
+    </tr>
+</table>
+
+<h3>要素セレクタ（もっとも基本）</h3>
+<p>タグ名をそのまま指定してスタイルを当てるセレクタ</p>
+
+<pre class="code">
+    p {
+    color: blue;
+    }
+</pre>
+
+<p>→ ページ内の &lt;p&gt; 全部が青になる。</p>
+
+<h3>クラスセレクタ（最もよく使う）</h3>
+<p>複数の要素に同じデザインを当てたいときに使うセレクタ</p>
+<pre class="code">
+    &lt;p class="lead"&gt;文章&lt;/p&gt;
+
+    .lead {
+    font-size: 20px;
+    color: #333;
+    }
+</pre>
+<p>　このコードだとleadと名前を付けたクラスに含まれる<br>「フォントサイズ・色を変える」
+    という意味になる</p>
+<p>→ class は何回でも使える。デザインの“グループ名”。</p>
+
+<h3>子孫セレクタ（スペース）</h3>
+<p>「Aの中にあるBだけ」にスタイルを当てるセレクタ</p>
+<pre class="code">
+div p {
+    color: red;
+}
+</pre>
+<img src="/html教科書/imgs/prg.png" alt="プログラムイメージ">
+<p>divの中のpだけが赤色に変わる</p>
+
+<h3>子セレクタ（>）</h3>
+<p>「すぐ下の階層の子だけ」を指定するセレクタ</p>
+<pre class="code">
+.box > p {
+    color: blue;
+}
+</pre>
+<img src="/html教科書/imgs/prg2.png" alt="プログラムイメージ">
+<p>→.box直下のpだけ青色になる</p>
+
+<h3>隣接セレクタ（+）</h3>
+<p>「A のすぐ後ろにある B だけ」を選ぶセレクタ</p>
+<pre class="code">
+h2 + p {
+    color: red;
+}
+</pre>
+<img src="/html教科書/imgs/prg3.png" alt="プログラムイメージ">
+<p>→h2のすぐ後ろのpが赤くなる</p>
+
+<h3>隣接セレクタ　成功例・失敗例</h3>
+<p>成功例</p>
+<img src="/html教科書/imgs/prg4.png" alt="隣接セレクタ成功例コード３">
+<img src="/html教科書/imgs/prg5.png" alt="隣接セレクタ成功例コード２">
+<p>どちらのコードもh2のすぐ次にpが来ているから色変わる！</p>
+<p>失敗例</p>
+<img src="/html教科書/imgs/prg6.png" alt="隣接セレクタ失敗例コード">
+<p>この場合はh2のすぐ次にpが来ていないため、色変わんない</p>
+
+<h3>兄弟セレクタ（~）</h3>
+<p>「Aより後ろにあるBを全部選ぶ」セレクタ</p>
+<pre class="code">
+h2 ~ p {
+    color: gray;
+}
+</pre>
+<img src="/html教科書/imgs/prg7.png" alt="プログラムイメージ">
+<p>h2の後ろのpが全部赤になる！</p>
+
+<h3>隣接セレクタ・兄弟セレクタ　違い</h3>
+<table>
+    <tr>
+        <th>セレクタ</th>
+        <th>意味</th>
+        <th>例えると</th>
+    </tr>
+    <tr>
+        <td>A＋B</td>
+        <td>Aのすぐ後ろのB１つだけ</td>
+        <td>「すぐ隣の席の人」</td>
+    </tr>
+    <tr>
+        <td>A～B</td>
+        <td>Aの後ろにあるB全部</td>
+        <td>「後ろの席にいる人全員」</td>
+    </tr>
+</table>
+
+<h3>属性セレクタ</h3>
+<p>属性セレクタは「特定の属性を持つ要素だけ」を選ぶためのセレクタ</p>
+<a href="#link1">属性がなんやったか忘れた方はクリックしてね♡</a>
+<pre class="code">
+    セレクタ[属性  ]{
+        ここにどうさせたいか書くよ
+    }
+</pre>
+<table>
+    <tr>
+        <th>書き方</th>
+        <th>意味</th>
+    </tr>
+    <tr>
+        <td>a[target]</td>
+        <td><strong>target属性を持つ a全部</strong>が対象<br>
+            かっこの中に属性だけ入力すると<br>
+            その属性を持つ要素全部に干渉する</td>
+    </tr>
+    <tr>
+        <td>input[type="text"]</td>
+        <td><strong>type="text" の inputだけ</strong>対象<br>
+            =""が追加されると""内にある値（文字とか）と<br>
+            完全一致するものだけに干渉する</td>
+    </tr>
+    <tr>
+        <td>a[href^="https"]</td>
+        <td><strong>https で始まるリンクだけ</strong>対象<br>
+            ^=""が追加されると前方が""内と一致するものだけに干渉する</td>
+    </tr>
+    <tr>
+        <td>a[href$=".pdf"]</td>
+        <td><strong>.pdf で終わるリンクだけ</strong>対象<br>
+            $=""が追加されると後方が""内と一致するものだけに干渉する</td>
+    </tr>
+    <tr>
+        <td>a[href*="google"]</td>
+        <td><strong>google を含むリンク全部</strong>が対象<br>
+            *=""が追加されると""内に書かれたものが含まれたところ<br>
+            全部に干渉する</td>
+    </tr>
+</table>
+<p>属性セレクタの利点</p>
+<ul>
+    <li>無駄にクラスを増やさずに済む</li>
+    <li>慣れてくるとUIデザインでよく使う</li>
+    <li>JavaScriptと相性がいい</li>
+</ul>
+
+<h3>疑似クラス</h3>
+<p>リンクやボタンの“状態”に応じてスタイルを変える。</p>
+<pre class="code">
+    セレクタ :疑似クラス{
+        ここにどうさせたいか書くよ
+    }
+</pre>
+<table>
+    <tr>
+        <th>疑似クラス</th>
+        <th>意味</th>
+    </tr>
+    <tr>
+        <td>:link</td>
+        <td>未訪問のリンク</td>
+    </tr>
+    <tr>
+        <td>:visited</td>
+        <td>訪問済みのリンク</td>
+    </tr>
+    <tr>
+        <td>:hover</td>
+        <td>マウスを乗せた時</td>
+    </tr>
+    <tr>
+        <td>:active</td>
+        <td>クリックした瞬間</td>
+    </tr>
+    <tr>
+        <td>:focus</td>
+        <td>入力欄が選択された時</td>
+    </tr>
+    <tr>
+        <td>:first-child</td>
+        <td>最初の子要素</td>
+    </tr>
+    <tr>
+        <td>:last-child</td>
+        <td>最後の子要素</td>
+    </tr>
+    <tr>
+        <td>:nth-child(2)</td>
+        <td>2番目の要素</td>
+    </tr>
+    <tr>
+        <td>:nth-of-type(2)</td>
+        <td>同じタグの中で2番目の要素</td>
+    </tr>
+</table>
+
+<h3>特にややこしい疑似クラスを抜粋して紹介</h3>
+<p>先ほどの表の最後の３つは特にミスや勘違いが多いのでかみ砕いて説明するよ</p>
+
+<h3>nth-child（順番で指定）</h3>
+<p>「n番目の要素」にスタイルを当てる。</p>
+<p> ()内の数字は何番目かの指定だにょ </p>
+
+<pre class="code">
+    p:nth-child(3) {
+    color: red;
+    }
+</pre>
+
+<p>→ 3番目の p だけ赤になる。</p>
+<p>※三番目がもしpではなかったら適応されない！</p>
+<img src="/html教科書/imgs/prg8.png" alt="コード例">
+<p>↑これは三番目がｐ要素でないからなんも変わらん！</p>
+
+<h3>nth-of-type（同じタグの中でn番目）</h3>
+<p>タグの種類ごとに数える。</p>
+
+<pre class="code">
+    p:nth-of-type(2) {
+    font-size: 20px;
+    }
+</pre>
+
+<p>→ 2番目の p だけ大きくなる。</p>
+<p>※pのタグしか見ないから間にliとかあっても飛ばして三番目のpに適応される</p>
+<img src="/html教科書/imgs/prg8.png" alt="コード例">
+<p>↑これは間のｐでないものを飛ばして上から数えるからcssが反映される！</p>
+
+<h3>疑似クラスで守ってほしいお約束</h3>
+<p>複数の違う疑似クラスを使うとき、<br>
+    実は順番を気にしないとうまく動かないかも…</p>
+<table>
+    <tr>
+        <th>順番（強さ）</th>
+        <th>疑似クラス</th>
+    </tr>
+    <tr>
+        <td>1番目</td>
+        <td>:link</td>
+    </tr>
+    <tr>
+        <td>2番目</td>
+        <td>:visited</td>
+    </tr>
+    <tr>
+        <td>3番目</td>
+        <td>:hover</td>
+    </tr>
+    <tr>
+        <td>4番目</td>
+        <td>:active</td>
+    </tr>
+</table>
+<p>なんで順番が大事なんか</p>
+<p>　　　　　↓　　　　　</p>
+<p>cssは<strong>後に書いたものが優先される仕様がある</strong>から！</p>
+<img src="/html教科書/imgs/prg9.png" alt="コード例">
+<p>こんな風に書いてしまうと先にvisitedのほうが効くから<br>
+    hoverが効かなくなってしまう</p>
+<p>※それ以外の疑似クラスはそこまで順番が大事なわけではないので<br>
+    あまり順番を気にしなくてもよい</p>
+
+<h3>セレクタの優先順位</h3>
+<p>複数のcssがかぶったとき、どれが先に優先されるか</p>
+<table>
+    <tr>
+        <th>強さ</th>
+        <th>例</th>
+    </tr>
+    <tr>
+        <td>① !important</td>
+        <td>color:red !important;</td>
+    </tr>
+    <tr>
+        <td>② インラインCSS</td>
+        <td>&lt;p style="color:red"&gt;</td>
+    </tr>
+    <tr>
+        <td>③ idセレクタ</td>
+        <td>#title</td>
+    </tr>
+    <tr>
+        <td>④ classセレクタ</td>
+        <td>.box</td>
+    </tr>
+    <tr>
+        <td>⑤ タグセレクタ</td>
+        <td>p</td>
+    </tr>
+</table>
+
+<h3>よくある間違い</h3>
+<ul>
+    <li>class と id の使い分けが逆になっている</li>
+    <li>子孫セレクタのスペースを忘れる（divp ではなく div p）</li>
+    <li>hover が効かない → a:link や a:visited の順番が逆</li>
+    <li>nth-child と nth-of-type の違いが分からない</li>
+</ul>

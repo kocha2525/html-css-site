@@ -1,0 +1,200 @@
+<h2>CSS基礎</h2>
+
+<h3>CSSとは？（大まかに紹介）</h3>
+<p>
+    CSS（Cascading Style Sheets）は、HTMLで作った「骨組み」に対して<br>
+    <strong>色・大きさ・余白・配置</strong>などの「見た目」を指定するための言語。
+</p>
+
+<h3>CSSの基本書式</h3>
+<pre class="code">
+セレクタ {
+    プロパティ: 値;
+}
+</pre>
+
+<h3>例 1：文字を赤くする</h3>
+<pre class="code">
+p {
+    color: red;
+}
+</pre>
+
+<h3>例 2：h1の文字サイズを24pxにする</h3>
+<pre class="code">
+h1 {
+    font-size: 24px;
+}
+</pre>
+
+<h2>基本書式の説明!</h2>
+
+<h3>セレクタってなんぞや？</h3>
+<p>「どの部分にCSSを適用するか」を指定するもの。</p>
+
+<table>
+    <tr>
+        <th>種類</th>
+        <th>例</th>
+        <th>意味</th>
+    </tr>
+    <tr>
+        <td>要素セレクタ</td>
+        <td>p</td>
+        <td>pタグすべてに適用</td>
+    </tr>
+    <tr>
+        <td>IDセレクタ</td>
+        <td>#main</td>
+        <td>id="main" の要素に適用</td>
+    </tr>
+    <tr>
+        <td>クラスセレクタ</td>
+        <td>.title</td>
+        <td>class="title" の要素に適用</td>
+    </tr>
+    <tr>
+        <td>子孫セレクタ</td>
+        <td>#main p</td>
+        <td>#main の中の p に適用</td>
+    </tr>
+    <tr>
+        <td>擬似クラス</td>
+        <td>a:hover</td>
+        <td>マウスが乗った時に適用</td>
+    </tr>
+</table>
+
+<h3>プロパティとは？</h3>
+<p>「何を変更するか」を指定する項目。</p>
+
+<table>
+    <tr>
+        <th>プロパティ</th>
+        <th>意味</th>
+    </tr>
+    <tr>
+        <td>color</td>
+        <td>文字色</td>
+    </tr>
+    <tr>
+        <td>background-color</td>
+        <td>背景色</td>
+    </tr>
+    <tr>
+        <td>font-size</td>
+        <td>文字サイズ</td>
+    </tr>
+    <tr>
+        <td>margin</td>
+        <td>外側の余白</td>
+    </tr>
+    <tr>
+        <td>padding</td>
+        <td>内側の余白</td>
+    </tr>
+    <tr>
+        <td>border</td>
+        <td>枠線</td>
+    </tr>
+</table>
+
+<h3>値とは？</h3>
+<p>プロパティを「どう変えるか」を指定する具体的な数値や色。</p>
+
+<pre class="code">
+    font-size: 24px;
+    color: #ff0000;
+    width: 80%;
+</pre>
+
+<h3>CSSの書き方（3つの方法）</h3>
+
+<h4>① インラインCSS（HTMLタグの中に書く）</h4>
+<pre class="code">
+    &lt;h1 style="color: red;"&gt;タイトル&lt;/h1&gt;
+</pre>
+<p>→ テスト用。大量に使うのは非推奨。<br>　せやからまぁどんな感じに変わるか試すときとかにつかうんがええかも。</p>
+
+<h4>② head内に書く（埋め込みCSS）</h4>
+<pre class="code">
+    &lt;style&gt;
+    p {
+    color: blue;
+    }
+    &lt;/style&gt;
+</pre>
+<img src="/html教科書/imgs/スクリーンショット 2026-06-13 210025.png" alt="コード例">
+<p>　こんな感じでヘッド内にstyleタグを作りその中にcssを書いてあげる</p>
+
+<h4>③ 外部CSS（最も推奨）</h4>
+<pre class="code">
+    &lt;link rel="stylesheet" href="style.css"&gt;
+</pre>
+<img src="/html教科書/imgs/スクリーンショット 2026-06-13 204943.png" alt="コード例">
+<p>　こんな感じでヘッド内にlinkタグで別で作ったcssファイルを追加してあげる</p>
+<p>→ 複数ページで同じCSSを使えちゃうのよ。せやから更新がむっちゃ楽。</p>
+
+<h3>CSSの優先順位（重要）</h3>
+<p>同じ場所に複数のCSSがあると、どれが適用されるか決まっている。</p>
+
+<table>
+    <tr>
+        <th>優先順位</th>
+        <th>説明</th>
+    </tr>
+    <tr>
+        <td>① インラインCSS</td>
+        <td>最強。タグに直接書く。</td>
+    </tr>
+    <tr>
+        <td>② head内のstyle</td>
+        <td>ページ内で書いたCSS</td>
+    </tr>
+    <tr>
+        <td>③ 外部CSS</td>
+        <td>style.css など</td>
+    </tr>
+    <tr>
+        <td>④ ブラウザのデフォルト</td>
+        <td>一番弱い</td>
+    </tr>
+</table>
+
+<h3>詳細度（セレクタの強さ）</h3>
+<p>セレクタにも“強さ”がある。</p>
+
+<table>
+    <tr>
+        <th>セレクタ</th>
+        <th>強さ</th>
+    </tr>
+    <tr>
+        <td>#id</td>
+        <td>1.0.0（強い）</td>
+    </tr>
+    <tr>
+        <td>.class</td>
+        <td>0.1.0</td>
+    </tr>
+    <tr>
+        <td>タグ名</td>
+        <td>0.0.1（弱い）</td>
+    </tr>
+</table>
+
+<p>例：同じ要素に複数のCSSがある場合</p>
+<pre class="code">
+    #title { color: red; } /* 強い */
+    .title { color: blue; } /* 中 */
+    h1 { color: green; } /* 弱い */
+</pre>
+
+<p>→ このコードを一気に書いた場合、赤が適用される。</p>
+<h3>つまずきポイント</h3>
+<ul>
+    <li>CSSが反映されない → CSSファイルのパスが間違っている</li>
+    <li>色が変わらない → 詳細度（セレクタの強さ）で負けている</li>
+    <li>外部CSSが効かない → &lt;link&gt; の書き方ミス</li>
+    <li>フォントサイズが変わらない → 単位(px/em/rem)の理解不足→（css基本プロパティまとめページに説明あり）</li>
+</ul>

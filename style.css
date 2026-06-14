@@ -1,0 +1,322 @@
+/* =========================================================
+   基本テーマ（ライト）
+========================================================= */
+:root {
+    --bg: #f7f9fc;
+    --sidebar-bg: #ffffff;
+    --card-bg: #ffffff;
+    --text: #333;
+    --accent: #0078ff;
+    --border: #e0e6ef;
+}
+
+/* =========================================================
+   ダークテーマ
+========================================================= */
+.dark {
+    --bg: #0f1126;
+    --sidebar-bg: #1a1c33;
+    --card-bg: #1f213a;
+    --text: #e8eaff;
+    --accent: #6a5bff;
+    --border: #2a2d45;
+}
+
+/* =========================================================
+   全体
+========================================================= */
+body {
+    margin: 0;
+    font-family: "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    transition: 0.3s;
+}
+
+main {
+    margin-left: 240px;
+    padding: 30px;
+}
+
+/* =========================================================
+   サイドバー（PC・スマホ共通）
+========================================================= */
+.sidebar {
+    width: 220px;
+    background: var(--sidebar-bg);
+    height: 100vh;
+    position: fixed;
+    text-align: center;
+    top: 0;
+    left: -240px;
+    /* ← デフォルトは隠す（PCでもスマホでも） */
+    padding: 20px;
+    border-right: 1px solid var(--border);
+    overflow-y: auto;
+    transition: 0.3s;
+}
+
+.sidebar.open {
+    left: 0;
+}
+
+.sidebar-title {
+    font-size: 18px;
+    font-weight: bold;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--accent);
+    margin-bottom: 15px;
+}
+
+/* サイドバーのリンク */
+.sidebar a {
+    display: block;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    color: var(--text);
+    text-decoration: none;
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+    transition: 0.2s;
+}
+
+.sidebar a:hover {
+    background: var(--accent);
+    color: white;
+}
+
+/* =========================================================
+   トグルボタン（サイドバー開閉）
+========================================================= */
+.toggle-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    /* ← サイドバー閉じてる時 */
+    z-index: 3000;
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+/* サイドバー開いた時の視認性UP（半透明＋ぼかし） */
+.sidebar.open~.toggle-btn {
+    left: 250px;
+    background: rgba(0, 120, 255, 0.65);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.sidebar.open~.toggle-btn:hover {
+    background: rgba(0, 120, 255, 0.85);
+}
+
+/* =========================================================
+   テーマ切替ボタン
+========================================================= */
+.theme-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 3000;
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* =========================================================
+   スマホ対応
+========================================================= */
+@media (max-width: 800px) {
+
+    main {
+        margin-left: 0;
+        padding-top: 70px;
+    }
+
+    .toggle-btn {
+        left: 15px;
+    }
+
+    .sidebar.open~.toggle-btn {
+        left: 250px;
+    }
+}
+
+/* =========================================================
+   セクション（教材デザイン）
+========================================================= */
+.section {
+    background: var(--card-bg);
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+}
+
+.section h2 {
+    margin-top: 0;
+    color: var(--accent);
+    border-left: 5px solid var(--accent);
+    padding-left: 10px;
+}
+
+.section h3 {
+    margin-top: 0;
+    border-bottom: 3px solid skyblue;
+    padding-left: 10px;
+}
+
+/* =========================================================
+   検索
+========================================================= */
+#searchInput {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid var(--accent);
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.result-card {
+    display: block;
+    background: var(--card-bg);
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: var(--text);
+    transition: 0.2s;
+}
+
+.result-card:hover {
+    background: var(--accent);
+    color: white;
+}
+
+/* =========================================================
+   トップに戻るボタン
+========================================================= */
+.back-to-top {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 45px;
+    height: 45px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    display: none;
+    z-index: 3000;
+    transition: 0.3s;
+}
+
+.back-to-top:hover {
+    background: #005fcc;
+}
+
+/* =========================================================
+   表（table）のデザイン
+========================================================= */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+}
+
+table th,
+table td {
+    border: 1px solid var(--border);
+    padding: 10px 12px;
+    text-align: left;
+}
+
+table th {
+    background: var(--accent);
+    color: white;
+    font-weight: bold;
+}
+
+table tr:nth-child(even) {
+    background: rgba(0, 0, 0, 0.03);
+}
+
+/* =========================================================
+   コードブロック（pre）のデザイン
+========================================================= */
+pre.code {
+    background: #f4f6fa;
+    /* ほんのりグレー */
+    padding: 15px 20px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    overflow-x: auto;
+    font-size: 15px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    /* 長い行を折り返す */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08)
+}
+
+.dark pre.code {
+    background: #1e1e2e;
+    border-color: #2a2d45;
+    color: #e8eaff;
+}
+
+mark {
+    background: yellow;
+    color: black;
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+.dark mark {
+    background: #ffeb3b;
+    color: black;
+}
+
+.back-search {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    padding: 10px 15px;
+    background: gray;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    display: none;
+    z-index: 999;
+}
+/* =========================================================
+   画像がはみ出さないようにする
+========================================================= */
+.section img,
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px 0;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+}
+
+
+
