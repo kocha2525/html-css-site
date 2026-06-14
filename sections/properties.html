@@ -1,0 +1,467 @@
+<h2>CSS 基本プロパティまとめ</h2>
+
+<h3>文字に関するプロパティ</h3>
+<table>
+    <tr>
+        <th>プロパティ</th>
+        <th>説明</th>
+    </tr>
+    <tr>
+        <td>color</td>
+        <td>文字色</td>
+    </tr>
+    <tr>
+        <td>font-size</td>
+        <td>文字サイズ</td>
+    </tr>
+    <tr>
+        <td>font-weight</td>
+        <td>太さ</td>
+    </tr>
+    <tr>
+        <td>font-family</td>
+        <td>フォント</td>
+    </tr>
+    <tr>
+        <td>text-align</td>
+        <td>配置</td>
+    </tr>
+    <tr>
+        <td>line-height</td>
+        <td>行間</td>
+    </tr>
+    <tr>
+        <td>text-decoration</td>
+        <td>下線など</td>
+    </tr>
+</table>
+
+<h3>color</h3>
+<p>文字色を変えるプロパティ</p>
+
+<pre class="code">
+    p {
+        color: #fff;  ←文字色
+    }
+</pre>
+
+<p><strong>色の指定方法</strong></p>
+<table>
+    <tr>
+        <th>方法</th>
+        <th>例</th>
+        <th>説明</th>
+    </tr>
+    <tr>
+        <td>カラーコード</td>
+        <td>#ff0088</td>
+        <td>もっとも一般的</td>
+    </tr>
+    <tr>
+        <td>RGB</td>
+        <td>rgb(255,0,136)</td>
+        <td>0～255で指定</td>
+    </tr>
+    <tr>
+        <td>RGBA</td>
+        <td>rgba(255,0,136,0.5)</td>
+        <td>透明度付き</td>
+    </tr>
+    <tr>
+        <td>色名</td>
+        <td>red/blue/green etc...</td>
+        <td>147色のみ</td>
+    </tr>
+</table>
+<p>※自分が思うような色にしたいときはカラーピッカーなどのサイトを利用し、<br>
+    なるべくカラーコードを使うようにしたほうが良い</p>
+
+<h3>font-weight</h3>
+<p>文字の太さを変えるプロパティ</p>
+<pre class="code">
+    p {
+        font-weight: bold; ← 太字 
+        font-weight: 400; ← 標準 
+        font-weight: 800; ← かなり太い 
+    }
+</pre>
+
+<h3>font-family</h3>
+<p>フォントを指定するプロパティ</p>
+<pre class="code">
+    p {
+        font-family: "";  ←好きなフォントの正式名所入力
+    }
+</pre>
+
+<h3>text-align</h3>
+<p>文字の位置を指定するプロパティ</p>
+<pre class="code">
+    p {
+        text-align: left;  ←左揃え
+        text-align: center;  ←中央揃え
+        text-align: right;  ←右揃え
+        text-align: justify;  ←両端揃え
+    }
+</pre>
+
+<h3>line-height</h3>
+<p>文字の上下の余白を調整するプロパティ</p>
+<pre class="code">
+    p{
+        line-height: 1.5;  ←単位なし推奨
+        line-height: 150%;  ←パーセント
+        line-height: 36px;  ←ピクセル指定
+    }
+</pre>
+
+<h3>text-decoration</h3>
+<p>文字に装飾をつけるためのプロパティ</p>
+<pre class="code">
+    p {
+        text-decoration: underline;  ←下線
+        text-decoration: overline;  ←上線
+        text-decoration: line-through;  ←取り消し線
+        text-decoration: none;  ←線を消す(主にリンクの下線を消したいときとかに使う)
+    }
+</pre>
+<p>※線の種類や色、太さ、文字との距離などをまとめて書くことができるが<br>
+     ここでは割愛</p>
+<p>↓取り消し線イメージ</p>
+<img src="/html教科書/imgs/img.png" alt="取り消し線イメージ">
+
+<h3>HTML/CSSにおける単位の説明</h3>
+<p><strong>結論から言うと単位は大きく分けて3つある！</strong></p>
+<ul>
+    <li>絶対単位（固定サイズ）</li>
+    <li>相対単位（親や画面に合わせて変わる）</li>
+    <li>特殊単位（CSS独自の便利に使えるもの）</li>
+</ul>
+
+<p style="text-decoration: underline yellow 3px;"><strong>①絶対単位</strong></p>
+<p>画面が変わっても大きさが変わらない単位</p>
+<table>
+    <tr>
+        <th>単位</th>
+        <th>読み方</th>
+        <th>意味</th>
+    </tr>
+    <tr>
+        <td>px</td>
+        <td>ピクセル</td>
+        <td>一番よく使う！ディスプレイにある点の数</td>
+    </tr>
+    <tr>
+        <td>cm</td>
+        <td>センチ</td>
+        <td>印刷用</td>
+    </tr>
+    <tr>
+        <td>mm</td>
+        <td>ミリ</td>
+        <td>印刷用</td>
+    </tr>
+    <tr>
+        <td>in</td>
+        <td>インチ</td>
+        <td>印刷用(1in = 2.54cm)</td>
+    </tr>
+    <tr>
+        <td>pt</td>
+        <td>ポイント</td>
+        <td>印刷用(1pt = 1/ 72in)</td>
+    </tr>
+</table>
+<p>この中だとウェブではほとんどpxを使うでぇ</p>
+<p>他は印刷向けだから、webではほとんど使わん</p>
+
+<p style="text-decoration: underline yellow 3px;"><strong>②相対単位（状況に応じてサイズが変わる）</strong></p>
+<p>レスポンシブデザインで最重要！</p>
+<p>※レスポンシブデザイン = 画面サイズが異なる端末に合わせて表示レイアウトを<br>
+    　　　　　　　　　　　　　　自動的に最適化する政策手法のこと</p>
+
+<p><strong>・%(パーセント)</strong></p>
+<p>親要素に対する割合</p>
+<pre class="code">
+    width: 50%;  ←親の半分
+</pre>
+
+<p><strong>・em(親のフォントサイズ基準)</strong></p>
+<p>1em = 親のfont-size</p>
+<pre class="code">
+    font-size: 20px;
+    padding: 1em;  ←20px
+</pre>
+<p>emは親のサイズに依存する！</p>
+
+<p><strong>・rem(ルートのフォントサイズ基準)</strong></p>
+<p>1rem = htmlのfont-size</p>
+<pre class="code">
+    html{ font-size: 16px; }
+    p{ font-size: 2rem; }  ←32px
+</pre>
+<p>※remはどこでも同じ基準！</p>
+
+<p><strong>・vw/vh(画面サイズ基準)</strong></p>
+<table>
+    <tr>
+        <th>単位</th>
+        <th>意味</th>
+    </tr>
+    <tr>
+        <td>1vw</td>
+        <td>画面の横幅の1％</td>
+    </tr>
+    <tr>
+        <td>1vh</td>
+        <td>画面の高さの1％</td>
+    </tr>
+</table>
+<pre class="code">
+    width: 100vw;  ←画面いっぱい
+    height: 100vh;  ←全画面
+</pre>
+<p>※スマホ対応などでめちゃくちゃ使う</p>
+
+<p><strong>・vmin/vmax</strong></p>
+<table>
+    <tr>
+        <th>単位</th>
+        <th>意味</th>
+    </tr>
+    <tr>
+        <td>vmin</td>
+        <td>画面の短い方の1％</td>
+    </tr>
+    <tr>
+        <td>vmax</td>
+        <td>画面の長い方の1％</td>
+    </tr>
+</table>
+<p>→正方形を作るときに便利</p>
+<pre class="code">
+    .square{
+        width: 50vmin;
+        height: 50vmin;
+    }
+</pre>
+<p>　正直使うことほとんどない</p>
+
+<p style="text-decoration: underline yellow 3px;"><strong>③特殊単位（css独自の便利系）</strong></p>
+<p>ほかの単位だとできない or 複雑になってしまうことを</p>
+<p><strong>一発で解決できるようにしたのが特殊単位</strong></p>
+
+<p><strong>・fr（Grid専用の割合単位）</strong></p>
+<pre class="code">
+    grid-template-colums: 1fr 2fr;
+</pre>
+<p>→左が１、右が２の比率で分割</p>
+
+<p><strong>・ch(文字幅基準)</strong></p>
+<p>「0 (ゼロ)」一文字分の幅</p>
+<pre class="code">
+    width: 40ch;  ←40文字分の幅
+</pre>
+<p>→入力フォームとかでよく使う</p>
+
+<p><strong>・ex（x-height基準）</strong></p>
+<p>フォントのx軸の高さ</p>
+<p>もうほぼ使わんし覚えんくても可</p>
+
+<h3>CSS単位最重要まとめ表</h3>
+<table>
+    <tr>
+        <th>目的</th>
+        <th>使う単位</th>
+    </tr>
+    <tr>
+        <td>固定サイズにしたい</td>
+        <td>px</td>
+    </tr>
+    <tr>
+        <td>文字サイズを安定させたい</td>
+        <td>rem</td>
+    </tr>
+    <tr>
+        <td>文字に合わせて余白を調整したい</td>
+        <td>em</td>
+    </tr>
+    <tr>
+        <td>横幅を割合で調整したい</td>
+        <td>%</td>
+    </tr>
+    <tr>
+        <td>画面いっぱいにしたい</td>
+        <td>vw/vh</td>
+    </tr>
+    <tr>
+        <td>正方形を作りたい</td>
+        <td>vmin</td>
+    </tr>
+    <tr>
+        <td>Gridの比率を決めたい</td>
+        <td>fr</td>
+    </tr>
+    <tr>
+        <td>入力欄の幅を文字数で決めたい</td>
+        <td>ch</td>
+    </tr>
+</table>
+<p style="text-decoration: underline red 3px;"><strong>※ほかにもたくさん単位はあるがいったんはこれを覚えればある程度のことはできる</strong></p>
+<p style="text-decoration: underline red 3px;"><strong>　慣れてきたらほかに便利な単位はたくさんあるので各自調べて学習していこう！</strong></p>
+
+
+<h3>文字の設定（font-size/font-weight/font-family）</h3>
+<p><strong>font-size(文字サイズ)</strong></p>
+<pre class="code">
+    p {
+        font-size: 24px;
+        font-size: 1.5em;
+        font-size: 1.5rem;
+    }
+</pre>
+<p>※サイズの単位設定で大きくレイアウトが変わってしまうので<br>
+    　単位を適切に使う必要あり</p>
+
+<h3>余白に関するプロパティ</h3>
+<table>
+    <tr>
+        <th>プロパティ</th>
+        <th>説明</th>
+    </tr>
+    <tr>
+        <td>margin</td>
+        <td>外側の余白</td>
+    </tr>
+    <tr>
+        <td>padding</td>
+        <td>内側の余白</td>
+    </tr>
+    <tr>
+        <td>margin-top</td>
+        <td>上の余白</td>
+    </tr>
+    <tr>
+        <td>padding-top</td>
+        <td>上の内側余白</td>
+    </tr>
+</table>
+
+<h3>margin/padding(余白)</h3>
+<p><strong>margin(外側の余白)</strong></p>
+<pre class="code">
+    .box {
+        margin: 20px;  ←全方向
+        margin: 10px 20px;  ←上下　左右
+        margin: 10px 20px 30px;  ←上　左右　下
+        margin: 10px 20px 30px 40px;  ←上　右　下　左
+    }
+</pre>
+<p>※サイズを増やしていくごとに細かく余白を設定できる！</p>
+
+<p><strong>padding(内側の余白)</strong></p>
+<pre class="code">
+    .box {
+        padding: 10px;
+    }
+</pre>
+<a href="#box1">詳しくはボックスモデルのセクションで説明</a>
+
+<h3>サイズに関するプロパティ</h3>
+<table>
+    <tr>
+        <th>プロパティ</th>
+        <th>説明</th>
+    </tr>
+    <tr>
+        <td>width</td>
+        <td>幅</td>
+    </tr>
+    <tr>
+        <td>height</td>
+        <td>高さ</td>
+    </tr>
+    <tr>
+        <td>max-width</td>
+        <td>最大幅</td>
+    </tr>
+    <tr>
+        <td>min-width</td>
+        <td>最小幅</td>
+    </tr>
+</table>
+<pre class="code">
+    p {
+        サイズに関するプロパティ: ここに指定したいサイズを書く;
+    }
+</pre>
+
+<h3>背景に関するプロパティ</h3>
+<table>
+    <tr>
+        <th>プロパティ</th>
+        <th>説明</th>
+    </tr>
+    <tr>
+        <td>background-color</td>
+        <td>背景色</td>
+    </tr>
+    <tr>
+        <td>background-image</td>
+        <td>背景画像</td>
+    </tr>
+</table>
+<pre class="code">
+    background-color: ここに色;
+    background-img: url("画像のパス");
+</pre>
+
+<h3>枠線に関するプロパティ</h3>
+<pre class="code">
+border: 2px 枠線の種類 black;
+</pre>
+<table>
+    <tr>
+        <th>枠線の種類</th>
+        <th>意味</th>
+    </tr>
+    <tr>
+        <td>solid</td>
+        <td>実線</td>
+    </tr>
+    <tr>
+        <td>dotted</td>
+        <td>点線</td>
+    </tr>
+    <tr>
+        <td>dashed</td>
+        <td>破線</td>
+    </tr>
+    <tr>
+        <td>double</td>
+        <td>二重線</td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <th>プロパティ</th>
+        <th>説明</th>
+    </tr>
+    <tr>
+        <td>border-width</td>
+        <td>線の太さ</td>
+    </tr>
+    <tr>
+        <td>border-style</td>
+        <td>線の種類</td>
+    </tr>
+    <tr>
+        <td>border-color</td>
+        <td>線の色</td>
+    </tr>
+    <tr>
+        <td>border-radius</td>
+        <td>角丸</td>
+    </tr>
+</table>

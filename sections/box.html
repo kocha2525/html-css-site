@@ -1,0 +1,99 @@
+<h2>ボックスモデル</h2>
+
+<h3 id="box1">ボックスモデルとは？</h3>
+<p>
+    HTML のすべての要素は「四角い箱（ボックス）」として扱われる。
+    この箱は <strong>content → padding → border → margin</strong> の4層で構成されている。
+</p>
+
+<img src="/html教科書/imgs/box.jpn.png" alt="ボックスモデル図">
+
+<h3>content（中身）</h3>
+<p>テキストや画像など、実際の内容が入る部分。</p>
+
+<h3>padding（内側の余白）</h3>
+<p>content と border の間の余白。</p>
+<p>文字が枠にくっつかないようにする</p>
+<pre class="code">padding: 20px;</pre>
+
+<h3>border（枠線）</h3>
+<p>要素の周りの線。</p>
+<pre class="code">border: 2px solid black;</pre>
+
+<h3>margin（外側の余白）</h3>
+<p>要素と要素の間の距離。</p>
+<p>要素と要素の間隔をあけてあげるために使ったりする</p>
+<pre class="code">margin: 30px;</pre>
+
+<h3>margin と padding の違い</h3>
+<table>
+    <tr>
+        <th>項目</th>
+        <th>意味</th>
+    </tr>
+    <tr>
+        <td>padding</td>
+        <td>要素の内側の余白（背景色が付く）</td>
+    </tr>
+    <tr>
+        <td>margin</td>
+        <td>要素の外側の余白（背景色は付かない）</td>
+    </tr>
+</table>
+
+<h3>width と height の注意点</h3>
+<p>
+    CSS の width / height は <strong>content の大きさだけ</strong> を指定する。
+    padding や border は含まれない。
+</p>
+
+<h3>box-sizing（重要）</h3>
+<p>width に padding や border を含めたい場合は <strong>box-sizing: border-box;</strong> を使う。</p>
+
+<pre class="code">
+* {
+    box-sizing: border-box;
+}
+</pre>
+
+<h3>例：border-box の違い</h3>
+<pre class="code">
+/* 通常（content-box） */
+.box1 {
+    width: 200px;
+    padding: 20px;
+    background-color: yellowgreen;
+}
+
+/* border-box */
+.box2 {
+    width: 200px;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: yellowgreen; 
+}
+</pre>
+<p>実行イメージ</p>
+<img src="/html教科書/imgs/img1.png" alt="ボーダーボックスイメージ画像">
+<p>画像のようにデフォルトでサイズ指定したときpaddingも含まれるので<br>
+   <strong>見た目の幅は 200px + (左右で20px+20pxなので)40px の240px</strong>になる</p>
+<p>しかしborder-boxを使うことでpaddingが中に押し込まれるので<br>
+   <strong>見た目の幅はwidthだけに依存するため200px</strong>になる</p>
+<p>このようにpaddingを含めるか含めないかでもサイズが変わるので注意が必要</p>
+
+<h3>よくあるミス</h3>
+<ul>
+    <li>width に padding が含まれていると思ってしまう</li>
+    <li>margin の相殺（margin collapse）を理解していない</li>
+    <li>上下 margin が重なって思ったより広くなる</li>
+    <li>border-box を使わずにレイアウトが崩れる</li>
+</ul>
+
+<h3>margin の相殺（margin collapse）</h3>
+<p>上下の margin は重なって「大きい方だけ」適用される。</p>
+
+<pre class="code">
+p {
+    margin: 20px 0;
+}
+</pre>

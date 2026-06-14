@@ -1,0 +1,291 @@
+<h2>Flexbox（フレックスボックス）</h2>
+
+<h3>Flexboxとは？</h3>
+<p>
+    Flexbox は、要素を <strong>横並び・縦並び・中央寄せ・均等配置</strong> など
+    <br>自由にレイアウトできる最強の仕組み。
+</p>
+
+<h3>基本構造</h3>
+<p><strong>flex関連のプロパティを使うなら絶対に<br>
+    display: flex;を親要素内に記述すること！</strong></p>
+<p>親：並べ方を決める</p>
+<p>子：そのルールに従って動く</p>
+<pre class="code">
+.container {
+    display: flex;
+}
+.item {
+    width: 100px;
+    height: 100px;
+    background: skyblue;
+}
+</pre>
+<img src="/html教科書/imgs/img3.png" alt="flex実例">
+<p>display: flex;のみで動かすとデフォルトのrowが動くので横並びになる！</p>
+
+<h3>横並び・縦並び</h3>
+<table>
+    <tr>
+        <th>プロパティ</th>
+        <th>説明</th>
+    </tr>
+    <tr>
+        <td>flex-direction: row;(デフォルト)</td>
+        <td>横並び</td>
+    </tr>
+    <tr>
+        <td>flex-direction: column;</td>
+        <td>縦並び</td>
+    </tr>
+</table>
+
+<pre class="code">
+    .container {
+        display: flex;  ←これ絶対いるよ
+        flex-direction: row;  ←横並び
+        flex-direction: column;  ←縦並び
+    }
+</pre>
+<p>※補足※row、columnにrow-reverce、column-reverceのように<br>
+    reverceを付け足すと右から左が左から右に変わるよ</p>
+<p style="text-decoration: underline 3px yellow ;">flex-direction: row;の場合</p>
+<img src="/html教科書/imgs/img3.png" alt= "実行イメージ">
+<p style="text-decoration: underline 3px yellow ;">flex-direction: column;の場合</p>
+<img src="/html教科書/imgs/img4.png" alt="実行イメージ">
+
+<p>※横並び、縦並びのプロパティーコードは基本的に<br>
+    親要素の中にぶち込む</p>
+
+<h3>justify-content（横方向）</h3>
+<table>
+    <tr>
+        <th>値</th>
+        <th>説明</th>
+    </tr>
+    <tr>
+        <td>flex-start</td>
+        <td>左寄せ</td>
+    </tr>
+    <tr>
+        <td>center</td>
+        <td>中央</td>
+    </tr>
+    <tr>
+        <td>flex-end</td>
+        <td>右寄せ</td>
+    </tr>
+    <tr>
+        <td>space-between</td>
+        <td>両端＋均等</td>
+    </tr>
+</table>
+<pre class="code">
+    .container {
+        display: flex;
+        justify-content: flex-start;  ←変えたい位置によって変更
+    }
+</pre>
+<p>表の上から順に実行するとこんな感じになるよ</p>
+<img src="/html教科書/imgs/img5.png" alt="実行イメージ">
+<p>横方向の位置調整はこやつが担当！</p>
+
+<h3>align-items（縦方向）</h3>
+<table>
+    <tr>
+        <th>値</th>
+        <th>説明</th>
+    </tr>
+    <tr>
+        <td>flex-start</td>
+        <td>上揃え</td>
+    </tr>
+    <tr>
+        <td>center</td>
+        <td>中央揃え</td>
+    </tr>
+    <tr>
+        <td>flex-end</td>
+        <td>下揃え</td>
+    </tr>
+</table>
+<pre class="code">
+    .container {
+        display: flex;
+        align-items: flex-start;  ←変えたい位置によって変更
+    }
+</pre>
+<p>表の上から順に実行するとこんな感じになるよ</p>
+<img src="/html教科書/imgs/img6 (2).png" alt="実行イメージ">
+<p>縦方向の位置調整はこやつが担当！</p>
+
+<h3>flex-wrap(デフォルト)</h3>
+<p>最も基本の形、この形で書いてもデフォルトのレイアウトになる</p>
+<p>デフォルトのレイアウト = 横並び</p>
+<pre class="code">
+    .conteiner {
+        display: flex;
+        flex-wrap: nowrap;  ←基本の形 (flex-wrap: 指示する内容;)
+    }
+</pre>
+<img src="/html教科書/imgs/img3.png" alt="">
+
+<h3>flex-wrap（折り返し）</h3>
+<p>Flexはデフォルトだと<strong>一行に詰め込もうとする</strong></p>
+<p>ほなどうすんねん↓</p>
+<p>そこで使われるのがflex-wrap</p>
+<p>wrap → <strong>幅が足りなければ次の行に折り返す</strong></p>
+<img src="/html教科書/imgs/img8.png" alt="実例">
+<p>幅が十分にある場合は折り返す必要がないのでデフォルトのまま表示される</p>
+<img src="/html教科書/imgs/png7.png" alt="実例">
+<p>幅が足りない場合にこのコードでは折り返しがされて二行になった</p>
+<pre class="code">
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+</pre>
+
+<h3>gap（余白）</h3>
+<p>昔まではmarginを使って余白を作っていたが、</p>
+<p>今は<strong>gapだけで要素間のスペースが作れる！</strong></p>
+<pre class="code">
+.container {
+    display: flex;
+    gap: 20px;
+}
+</pre>
+<p>※要素間の余白を作ることはできるが要素内の間隔は作れないので注意</p>
+
+<h3>Flexbox一覧表</h3>
+<p><strong>親要素に使うプロパティ(display:flexのとき)</strong></p>
+<table>
+    <tr>
+        <th>プロパティ</th>
+        <th>役割</th>
+        <th>主な値</th>
+        <th>説明</th>
+    </tr>
+    <tr>
+        <td>display</td>
+        <td>Flexを有効か</td>
+        <td>flex</td>
+        <td>親につけると子がFlexのルールで並ぶ</td>
+    </tr>
+    <tr>
+        <td>flex-direction</td>
+        <td>並ぶ方向</td>
+        <td>row/column</td>
+        <td>横並び/縦並び</td>
+    </tr>
+    <tr>
+        <td>flex-wrap</td>
+        <td>折り返し</td>
+        <td>nowrap/wrap</td>
+        <td>幅が足りない時折り返す</td>
+    </tr>
+    <tr>
+        <td>justify-content</td>
+        <td>並ぶ方向の揃え方</td>
+        <td>flex-start/center/flex-end/space-between/space-around/space-evenly</td>
+        <td>横並びなら横方向、縦並びなら縦方向の揃え</td>
+    </tr>
+    <tr>
+        <td>align-items</td>
+        <td>並ぶ方向と逆方向の揃え</td>
+        <td>flex-start/center/flex-end/stretch</td>
+        <td>rowなら縦方向、columnなら横方向</td>
+    </tr>
+    <tr>
+        <td>align-content</td>
+        <td>複数行の揃え</td>
+        <td>flex-start/center/flex-end/space-between/space-around/strech</td>
+        <td>wrapした時の行全体の揃え</td>
+    </tr>
+    <tr>
+        <td>gap</td>
+        <td>要素間の余白</td>
+        <td>数値(px,rem等)</td>
+        <td>要素同士の間隔を作る（内側には効かない）</td>
+    </tr>
+</table>
+<p><strong>子要素に使うプロパティ</strong></p>
+<table>
+    <tr>
+        <th>プロパティ</th>
+        <th>役割</th>
+        <th>説明</th>
+    </tr>
+    <tr>
+        <td>flex-grow</td>
+        <td>余ったスペースをどれだけ広げるか</td>
+        <td>1にすると伸びる、0なら伸びない</td>
+    </tr>
+    <tr>
+        <td>flex-shrink</td>
+        <td>スペースが足りないとき縮む割合</td>
+        <td>1なら縮む、0なら縮まない</td>
+    </tr>
+    <tr>
+        <td>flex-basis</td>
+        <td>基本の幅（高さ）</td>
+        <td>widthの代わりに使うことが多い</td>
+    </tr>
+    <tr>
+        <td>flex</td>
+        <td>grow shrink basisのまとめ</td>
+        <td>例：flex: 1;は均等に広がる</td>
+    </tr>
+    <tr>
+        <td>align-self</td>
+        <td>個別の縦揃え</td>
+        <td>align-itemsを上書きできる</td>
+    </tr>
+</table>
+<p><strong>よく使う組み合わせ</strong></p>
+<table>
+    <tr>
+        <th>目的</th>
+        <th>よく使う設定</th>
+    </tr>
+    <tr>
+        <td>横並びにしたい</td>
+        <td>display: flex;</td>
+    </tr>
+    <tr>
+        <td>縦並びにしたい</td>
+        <td>flex-direction: column;</td>
+    </tr>
+    <tr>
+        <td>横方向の中央寄せ</td>
+        <td>justify-content: center;</td>
+    </tr>
+    <tr>
+        <td>縦方向の中央寄せ</td>
+        <td>align-items: center;</td>
+    </tr>
+    <tr>
+        <td>完全中央寄せ（上下左右）</td>
+        <td>justify-content: center; align-content: center;</td>
+    </tr>
+    <tr>
+        <td>均等配置</td>
+        <td>justify-content: space-between;</td>
+    </tr>
+    <tr>
+        <td>折り返しレイアウト</td>
+        <td>flex-wrap: wrap;</td>
+    </tr>
+    <tr>
+        <td>要素間の余白</td>
+        <td>gap: 20px;</td>
+    </tr>
+    <tr>
+        <td>子要素を均等に広げる</td>
+        <td>flex: 1;</td>
+    </tr>
+</table>
+
+<p><strong>このFlexに関しては要素が多く説明しきれないので<br>
+           別途わかりやすく説明されたサイトのリンクを貼っておきます</strong></p>
+<a href="https://www.webcreatorbox.com/blog/css-flexbox-cheat-sheet" target="_blank">Flexboxわかりやすいサイト</a>

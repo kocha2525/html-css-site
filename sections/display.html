@@ -1,0 +1,151 @@
+<h2>display の基礎</h2>
+
+<h3>display とは？</h3>
+<p>
+    display は、要素が「どのように表示されるか」を決めるプロパティ。<br>
+    レイアウトを理解する上で最重要の概念。
+</p>
+
+<h3>代表的な display の種類</h3>
+<table>
+    <tr>
+        <th>値</th>
+        <th>説明</th>
+    </tr>
+    <tr>
+        <td>block</td>
+        <td>縦に積まれる・幅は親いっぱい</td>
+    </tr>
+    <tr>
+        <td>inline</td>
+        <td>横に並ぶ・width/height不可</td>
+    </tr>
+    <tr>
+        <td>inline-block</td>
+        <td>横並び＋幅高さ指定可能</td>
+    </tr>
+    <tr>
+        <td>flex</td>
+        <td>柔軟なレイアウト</td>
+    </tr>
+    <tr>
+        <td>none</td>
+        <td>非表示(要素を完全に消す)</td>
+    </tr>
+</table>
+
+<h3>block（ブロック要素）</h3>
+<p>ブロック要素は「縦に積み重なるタイプ」</p>
+<p>前後に自動で開業が入り、幅や高さを自由に指定できる</p>
+<table>
+    <tr>
+        <th>特徴</th>
+        <th>説明</th>
+    </tr>
+    <tr>
+        <td>改行される</td>
+        <td>次の要素は下に来る</td>
+    </tr>
+    <tr>
+        <td>width/height指定できる</td>
+        <td>サイズを自由に変えられる</td>
+    </tr>
+    <tr>
+        <td>margin/padding全方向いける</td>
+        <td>余白も自由</td>
+    </tr>
+</table>
+<p><strong>代表的なブロック要素</strong></p>
+<ul>
+    <li>div</li>
+    <li>p</li>
+    <li>h1～h6</li>
+    <li>ul/li</li>
+    <li>table</li>
+</ul>
+
+<h3>inline（インライン要素）</h3>
+<p>インライン要素は「横に並ぶ」タイプ</p>
+<p>文字のように扱われ、幅や高さを指定できない！</p>
+<table>
+    <tr>
+        <th>特徴</th>
+        <th>説明</th>
+    </tr>
+    <tr>
+        <td>横に並ぶ</td>
+        <td>テキストと同じ扱い</td>
+    </tr>
+    <tr>
+        <td>width/heightだめ</td>
+        <td>サイズ指定できない</td>
+    </tr>
+    <tr>
+        <td>上下のmarginだめ</td>
+        <td>左右だけ有効</td>
+    </tr>
+</table>
+<p><strong>代表的なインライン要素</strong></p>
+<ul>
+    <li>span</li>
+    <li>a</li>
+    <li>img</li>
+    <li>strong</li>
+</ul>
+
+<h3>inline-block(インライン＋ブロックのいいとこどり)</h3>
+<p>横に並ぶけど、width/heightも指定できる最強の中間タイプ</p>
+<p>ボタンやメニューでよく使う。</p>
+<table>
+    <tr>
+        <th>特徴</th>
+        <th>説明</th>
+    </tr>
+    <tr>
+        <td>横に並ぶ</td>
+        <td>インラインと同じ</td>
+    </tr>
+    <tr>
+        <td>width/heightいける</td>
+        <td>ブロックと同じ</td>
+    </tr>
+    <tr>
+        <td>margin/padding全方向いける</td>
+        <td>余白も自由</td>
+    </tr>
+</table>
+<pre class="code">
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #0078ff;
+    color: white;
+}
+</pre>
+<p><strong>ただしこのinline-brockは欠点が多すぎる…</strong></p>
+<ul>
+    <li>要素の間に謎の隙間ができる</li>
+    <li>高さがそろわない</li>
+    <li>横幅の計算が文字扱いでややこしい</li>
+    <li>レスポンシブが弱い</li>
+    <li>中央揃えがややこしい</li>
+    <li>高さ揃え・幅揃えがFlexより圧倒的に弱い</li>
+</ul>
+<p>せやからinline-blockは便利やけど気を付ける点が多すぎるから<br>
+   基本的にはFlex使っておくほうが無難ではある！</p>
+   
+<h3>つまずきポイント</h3>
+<ul>
+    <li>width が効かない → inline 要素に指定している</li>
+    <li>横並びにならない → block のままになっている</li>
+    <li>ボタンの高さが揃わない → inline-block を使うべき</li>
+    <li>要素を消したいのにスペースが残る → visibility:hidden と混同している</li>
+</ul>
+
+<h3>まとめ（これだけ覚えればOK）</h3>
+<ul>
+    <li>レイアウトの基本は block と inline の違い</li>
+    <li>ボタンやメニューは inline-block が最強</li>
+    <li>要素を消すなら display:none</li>
+    <li>サイズが効かないときは display を疑う</li>
+</ul>

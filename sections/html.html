@@ -1,0 +1,157 @@
+<h2>HTML基礎</h2>
+
+<h3>HTMLとは？（大まかに紹介）</h3>
+<p>
+    HTML（HyperText Markup Language）は、Webページの「骨組み」を作るための言語。
+    <br>見出し・段落・画像・リンクなど、ページの構造を決める役割を持つ。<br>
+    プログラミング言語ではあるが正確には<strong>マークアップ言語</strong>と呼ばれるものになる！
+</p>
+
+<h3>HTMLの基本構造</h3>
+<pre class="code">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ja"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;title&gt;ページタイトル&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+　　ここには主にページに表示される内容かくにょ
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3>各タグの役割</h3>
+<table>
+    <tr>
+        <th>タグ</th>
+        <th>役割</th>
+    </tr>
+    <tr>
+        <td>&lt;!DOCTYPE html&gt;</td>
+        <td>HTMLのバージョン宣言</td>
+    </tr>
+    <tr>
+        <td>&lt;html&gt;</td>
+        <td>HTML文書の開始</td>
+    </tr>
+    <tr>
+        <td>&lt;head&gt;</td>
+        <td>ページ情報（タイトルなど）</td>
+    </tr>
+    <tr>
+        <td>&lt;meta&gt;</td>
+        <td>文字コードや説明文などの設定</td>
+    </tr>
+    <tr>
+        <td>&lt;title&gt;</td>
+        <td>ブラウザのタブに表示されるタイトル</td>
+    </tr>
+    <tr>
+        <td>&lt;body&gt;</td>
+        <td>画面に表示される内容を書く場所</td>
+    </tr>
+</table>
+
+<h3>よく使うHTMLタグ</h3>
+<p>主にbodyの中に書くやつ</p>
+<table>
+    <tr>
+        <th>タグ</th>
+        <th>意味</th>
+    </tr>
+    <tr>
+        <td>&lt;h1&gt;〜&lt;h6&gt;</td>
+        <td>見出し</td>
+    </tr>
+    <tr>
+        <td>&lt;p&gt;</td>
+        <td>段落</td>
+    </tr>
+    <tr>
+        <td>&lt;br&gt;</td>
+        <td>改行</td>
+    </tr>
+    <tr>
+        <td>&lt;a href=""&gt;</td>
+        <td>リンク</td>
+    </tr>
+    <tr>
+        <td>&lt;img src="" alt=""&gt;</td>
+        <td>画像</td>
+    </tr>
+    <tr>
+        <td>&lt;ul&gt;&lt;li&gt;</td>
+        <td>箇条書き</td>
+    </tr>
+    <tr>
+        <td>&lt;div&gt;</td>
+        <td>ブロック要素（大きなまとまり）</td>
+    </tr>
+    <tr>
+        <td>&lt;span&gt;</td>
+        <td>インライン要素（小さな範囲）</td>
+    </tr>
+</table>
+
+<h3 id="link1">属性とは？</h3>
+<p>タグに追加情報を与えるもの。コーディング例：</p>
+
+<pre class="code">
+    &lt;a href="https://example.com" target="_blank"&gt;リンク&lt;/a&gt;
+</pre>
+<table>
+    <tr>
+        <th>属性</th>
+        <th>意味</th>
+    </tr>
+    <tr>
+        <td>href</td>
+        <td>リンク先のURL</td>
+    </tr>
+    <tr>
+        <td>src</td>
+        <td>画像ファイルのパス</td>
+    </tr>
+    <tr>
+        <td>alt</td>
+        <td>画像が表示されない時の説明文(アクセシビリティとしても非常に有効なので必ず書くよ！)</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>ページ内で1つだけの識別名</td>
+    </tr>
+    <tr>
+        <td>class</td>
+        <td>複数の要素に付けられるグループ名</td>
+    </tr>
+    <tr>
+        <td>target="_blank"</td>
+        <td>新しいタブで開く</td>
+    </tr>
+</table>
+
+<p><strong>※idやclass要素はcssを使うときによく使うから使い方覚えておく！</strong></p>
+
+<h3>HTMLで絶対守るべきルール！</h3>
+<ul>
+
+    <li>h1は1ページに一つだけ</li>
+    <li>p要素の中に&lt;div&gt;や&lt;h1&gt;は使わない</li>
+    <li>画像には必ず alt (画像の説明)を付ける！（アクセシビリティ）</li>
+    <li>タグは必ず正しく閉じる！</li>
+
+</ul>
+
+<h3>よくあるミス</h3>
+<ul>
+    <li>レイアウトが崩れる→タグの閉じ忘れ確認！</li>
+    <li>画像が表示されない→ファイルの場所を間違えてるかそもそも写真をアップロードできてないかも…</li>
+    <li>箇条書き要素をli単体で使ったりする<br>
+        正しくは写真の通りに書く<br>
+        <strong>ul要素の中にli要素を使う感じ！</strong><br>
+        <img src="/html教科書/imgs/list.jpg.png" alt="list例">
+    </li>
+</ul>

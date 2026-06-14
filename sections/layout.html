@@ -1,0 +1,73 @@
+<h2>レイアウト応用</h2>
+
+<h3>レイアウトとは？</h3>
+<p>
+    Webページの「配置」を決める技術。
+    HTML で骨組みを作り、CSS でレイアウトを整える。
+</p>
+
+<h3>レイアウトの主な手法</h3>
+<ul>
+    <li>float</li>
+    <li>flex</li>
+    <li>position</li>
+    <li>grid</li>
+</ul>
+
+<h3>2カラム（float版）</h3>
+<pre class="code">
+.left {
+    float: left;
+    width: 70%;
+}
+.right {
+    float: right;
+    width: 30%;
+}
+</pre>
+
+<h3>2カラム（flex版）</h3>
+<pre class="code">
+.container {
+    display: flex;
+}
+.left {
+    flex: 3;
+}
+.right {
+    flex: 1;
+}
+</pre>
+
+<h3>position の種類</h3>
+<table>
+    <tr>
+        <th>値</th>
+        <th>説明</th>
+    </tr>
+    <tr>
+        <td>relative</td>
+        <td>元の位置からずらす</td>
+    </tr>
+    <tr>
+        <td>absolute</td>
+        <td>親基準で配置</td>
+    </tr>
+    <tr>
+        <td>fixed</td>
+        <td>画面に固定</td>
+    </tr>
+    <tr>
+        <td>sticky</td>
+        <td>スクロールで固定</td>
+    </tr>
+</table>
+
+<h3>grid（複雑なレイアウト向け）</h3>
+<pre class="code">
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+</pre>
